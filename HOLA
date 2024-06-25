@@ -1,0 +1,5 @@
+def HolaMundo(pint):
+    print(pint)
+    
+HolaMundo("print")
+
