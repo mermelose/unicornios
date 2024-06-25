@@ -1,5 +1,3 @@
-def HolaMundo(pint):
-    print(pint)
-    
-HolaMundo("print")
-
+import pandas as pd
+data=pd.read_csv('base de datos.csv')
+print(data)
