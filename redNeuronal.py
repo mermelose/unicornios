@@ -76,3 +76,20 @@ plt.ylabel('Predicciones')
 plt.grid()
 plt.legend()
 plt.show()
+
+coefs = red.coefs_
+intercepts = red.intercepts_
+
+# Función para realizar predicciones manualmente
+def manual_predict(X):
+    layer_input = X
+    for coef, intercept in zip(coefs, intercepts):
+        layer_output = np.dot(layer_input, coef) + intercept
+        layer_input = np.maximum(layer_output, 0)  # Aplicar función de activación ReLU
+    return layer_output
+
+# Realizar predicciones manualmente
+y_manual_pred = manual_predict(X_prb)
+y_pred_p = y_pred_p.T
+print(y_pred_p)
+print(y_manual_pred)
