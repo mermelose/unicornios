@@ -1,0 +1,96 @@
+import pygame
+import sys
+
+# Inicialización de Pygame
+pygame.init()
+
+# Dimensiones de la pantalla
+screen_width = 800
+screen_height = 600
+
+# Colores
+BLACK = (0, 0, 0)
+WHITE = (255, 255, 255)
+
+# Configuración de la pantalla
+screen = pygame.display.set_mode((screen_width, screen_height))
+pygame.display.set_caption("Pong")
+
+# Variables de los jugadores
+player1_pos = [50, screen_height // 2 - 50]
+player2_pos = [screen_width - 70, screen_height // 2 - 50]
+players_speed = 5
+
+# Variables de la pelota
+ball_pos = [screen_width // 2, screen_height // 2]
+ball_speed = [5, 5]
+ball_radius = 10
+
+# Función para dibujar los jugadores
+def draw_players():
+    pygame.draw.rect(screen, WHITE, (player1_pos[0], player1_pos[1], 20, 100))
+    pygame.draw.rect(screen, WHITE, (player2_pos[0], player2_pos[1], 20, 100))
+
+# Función para dibujar la pelota
+def draw_ball():
+    pygame.draw.circle(screen,WHITE, (ball_pos[0], ball_pos[1]), ball_radius)
+
+# Función principal del juego
+def main():
+    global player1_pos, player2_pos, ball_pos, ball_speed
+
+    clock = pygame.time.Clock()
+
+    while True:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                sys.exit()
+
+        keys = pygame.key.get_pressed()
+        if keys[pygame.K_w]:
+            if player1_pos[1] > 0:
+                player1_pos[1] -= players_speed
+        if keys[pygame.K_s]:
+            if player1_pos[1] < screen_height - 100:
+                player1_pos[1] += players_speed
+        if keys[pygame.K_UP]:
+            if player2_pos[1] > 0:
+                player2_pos[1] -= players_speed
+        if keys[pygame.K_DOWN]:
+            if player2_pos[1] < screen_height - 100:
+                player2_pos[1] += players_speed
+
+        # Movimiento de la pelota
+        ball_pos[0] += ball_speed[0]
+        ball_pos[1] += ball_speed[1]
+
+        # Colisión de la pelota con las paredes
+        if ball_pos[1] >= screen_height - ball_radius or ball_pos[1] <= ball_radius:
+            ball_speed[1] = -ball_speed[1]
+
+        # Colisión de la pelota con los jugadores
+        if ball_pos[0] <= player1_pos[0] + 20 and player1_pos[1] < ball_pos[1] < player1_pos[1] + 100:
+            ball_speed[0] = -ball_speed[0]
+        if ball_pos[0] >= player2_pos[0] - ball_radius and player2_pos[1] < ball_pos[1] < player2_pos[1] + 100:
+            ball_speed[0] = -ball_speed[0]
+
+        # Verificar si alguien anotó un punto
+        if ball_pos[0] < 0 or ball_pos[0] > screen_width:
+            ball_pos = [screen_width // 2, screen_height // 2]
+
+        # Limpiar la pantalla
+        screen.fill(BLACK)
+
+        # Dibujar los objetos del juego
+        draw_players()
+        draw_ball()
+
+        # Actualizar la pantalla
+        pygame.display.flip()
+
+        # Controlar la velocidad de actualización de la pantalla
+        clock.tick(60)
+
+if __name__ == "__main__":
+    main()
