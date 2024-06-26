@@ -44,10 +44,10 @@ Para utilizar el modelo predictivo, sigue estos pasos:
 
 1. Asegúrate de tener los archivos de datos necesarios en el directorio `data/`.
 2. Ejecuta el script de predicción con el modelo
+
    ```sh
-   
-    redNeuronal_con_ventana.py
-    ```
+   redNeuronal_con_ventana.py
+   ```
 
 ## Datos
 El conjunto de datos incluye registros históricos de asistencia, horarios de eventos, datos meteorológicos y otros factores relevantes. Los datos se almacenan en el directorio `data/` e incluyen los siguientes archivos:
