@@ -15,9 +15,7 @@ El objetivo principal es incrementar el número de visitas a estos sitios histó
 - [Instalación](#instalación)
 - [Uso](#uso)
 - [Datos](#datos)
-- [Modelo](#modelo)
-- [Evaluación](#evaluación)
-- [Contribuciones](#contribuciones)
+- [Autores](#autores)
 
 
 ## Instalación
@@ -52,18 +50,12 @@ Para utilizar el modelo predictivo, sigue estos pasos:
 ## Datos
 El conjunto de datos incluye registros históricos de asistencia, horarios de eventos, datos meteorológicos y otros factores relevantes. Los datos se almacenan en el directorio `data/` e incluyen los siguientes archivos:
 
-- `Base_de_Datos`: Registros históricos de asistencia.
+- `Datos_Visitas_Arqueologicas`: Registros históricos de asistencia.
 - `Relación_de_Precios.csv`:  Precios de las entradas a los museos.
 
 ## Construido con
 
 * Pandas - Biblioteca de análisis de datos utilizada para manipular conjuntos de datos
-
-## Contribución
-
-
-## Versionado
-
 
 ## Autores
 
