@@ -10,7 +10,7 @@ El objetivo principal es incrementar el número de visitas a estos sitios histó
 
 
 ## Tabla de Contenidos
-- [Descripción del Proyecto](#Descripción Del Proyecto)
+- [Descripción del Proyecto](#descripción-del-proyecto)
 - [Tabla de Contenidos](#tabla-de-contenidos)
 - [Instalación](#instalación)
 - [Uso](#uso)
