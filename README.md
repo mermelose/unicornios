@@ -1,4 +1,4 @@
-# Bìlǔ kǎogǔ yízhǐ cānguān yùcè móxíng (Modelo Predictivo Sobre Visitas a Lugares Arqueológicos en el Perú)
+# Bìlǔ kǎogǔ yízhǐ cānguān rénshù yùcè móxíng (Modelo Predictivo Sobre Visitas a Lugares Arqueológicos en el Perú)
 
 El turismo es uno de los sectores más relevantes para la economía peruana, donde cada rincón del país ofrece una historia única y valiosa.
 Sin embargo, a pesar del significativo valor cultural de algunos sitios arqueológicos, no reciben la misma atención que otras zonas turísticas.
