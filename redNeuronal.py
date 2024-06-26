@@ -60,7 +60,7 @@ red.fit(X_ent, y_ent)
 # Realizar predicciones
 y_pred_e = red.predict(X_ent)
 y_pred_p = red.predict(X_prb)
-y_pred_p = scaler_y.inverse_transform(y_pred_p.reshape(-1, 1)).flatten()
+
 
 # Evaluar el desempeño
 rmse_e = mean_squared_error(y_true=y_ent, y_pred=y_pred_e, squared=False)
@@ -96,6 +96,8 @@ def manual_predict(X):
 y_manual_pred = manual_predict(X_prb).flatten()
 scaler_y_manual= StandardScaler().fit(y_ent.reshape(-1, 1))
 y_manual_pred = scaler_y.inverse_transform(y_manual_pred.reshape(-1, 1)).flatten()
+y_pred_p = scaler_y.inverse_transform(y_pred_p.reshape(-1, 1)).flatten()
+
 y_pred_p = y_pred_p.T
 print(y_pred_p)
 print(y_manual_pred)
@@ -103,4 +105,3 @@ print(y)
 score = red.score(X_prb, y_prb)
 
 print("El R2 es",score)
-
