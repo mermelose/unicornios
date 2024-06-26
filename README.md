@@ -10,7 +10,7 @@ El objetivo principal es incrementar el número de visitas a estos sitios histó
 
 
 ## Tabla de Contenidos
-- [Descripción del Proyecto](#descripción-del-proyecto)
+- [Descripción del Proyecto](#Descripción Del Proyecto)
 - [Tabla de Contenidos](#tabla-de-contenidos)
 - [Instalación](#instalación)
 - [Uso](#uso)
@@ -18,8 +18,7 @@ El objetivo principal es incrementar el número de visitas a estos sitios histó
 - [Modelo](#modelo)
 - [Evaluación](#evaluación)
 - [Contribuciones](#contribuciones)
-- [Licencia](#licencia)
-- [Contacto](#contacto)
+
 
 ## Instalación
 Para instalar y ejecutar este proyecto localmente, sigue estos pasos:
@@ -40,11 +39,13 @@ Para instalar y ejecutar este proyecto localmente, sigue estos pasos:
     ```
 
 ## Uso
+
 Para utilizar el modelo predictivo, sigue estos pasos:
 
 1. Asegúrate de tener los archivos de datos necesarios en el directorio `data/`.
 2. Ejecuta el script de predicción con el modelo
    ```sh
+   
     redNeuronal_con_ventana.py
     ```
 
