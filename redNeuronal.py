@@ -45,7 +45,7 @@ y_prb = scaler_y.transform(y_prb.reshape(-1, 1)).ravel()
 
 # Crear la red neuronal
 red = MLPRegressor(hidden_layer_sizes=(2,),
-                   activation='relu',
+                   activation='logistic',
                    solver='adam',
                    alpha=0.001,
                    batch_size='auto',
@@ -83,18 +83,23 @@ plt.show()
 coefs = red.coefs_
 intercepts = red.intercepts_
 
-print(coefs)
+#print(coefs)
 # Función para realizar predicciones manualmente
+def sigmoid(x):
+    return 1 / (1 + np.exp(-x))
+
+
 def manual_predict(X):
     layer_input = X
     for coef, intercept in zip(coefs, intercepts):
+        #print(coef)
         layer_output = np.dot(layer_input, coef) + intercept
-        layer_input = np.maximum(layer_output, 0)  # Aplicar función de activación ReLU
+        layer_input = sigmoid(layer_output) # Aplicar función de activación ReLU
     return layer_output
 
 # Realizar predicciones manualmente
 y_manual_pred = manual_predict(X_prb).flatten()
-scaler_y_manual= StandardScaler().fit(y_ent.reshape(-1, 1))
+
 y_manual_pred = scaler_y.inverse_transform(y_manual_pred.reshape(-1, 1)).flatten()
 y_pred_p = scaler_y.inverse_transform(y_pred_p.reshape(-1, 1)).flatten()
 
