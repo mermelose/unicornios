@@ -45,9 +45,6 @@ Antes de comenzar, asegúrate de tener instalado lo siguiente:
 * **Salazar, Paolo**
 * **Zhou, Cynthia**
 
-## Licencia
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
 ## Agradecimientos
 
