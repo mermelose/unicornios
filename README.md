@@ -56,7 +56,13 @@ El conjunto de datos incluye registros históricos de asistencia, horarios de ev
 ## Construido con
 
 * Pandas - Biblioteca de análisis de datos utilizada para manipular conjuntos de datos
-
+* NumPy: Biblioteca para el cálculo numérico y manejo de arreglos.
+* sklearn.neural_network: Módulo de scikit-learn que proporciona herramientas para la creación de redes neuronales.
+* sklearn.model_selection: Módulo de scikit-learn utilizado para dividir los datos en conjuntos de entrenamiento y prueba.
+* sklearn.metrics: Módulo de scikit-learn que ofrece herramientas para evaluar el rendimiento del modelo.
+* sklearn.preprocessing: Módulo de scikit-learn utilizado para la normalización y codificación de características.
+* Matplotlib: Biblioteca para la creación de gráficos y visualización de datos.
+* tkinter: Biblioteca para la creación de interfaces gráficas de usuario en Python.
 ## Autores
 
 * **Montalvo, Fabrizio**
