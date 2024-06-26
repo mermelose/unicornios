@@ -5,25 +5,27 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error
 from sklearn.preprocessing import StandardScaler
 from sklearn.preprocessing import OneHotEncoder
+
 from matplotlib import pyplot as plt
 
 # Cargar datos
-dfa = pd.read_csv('Base de Datos.csv')
-dfb = pd.read_csv('Relación_de_Precios_Modificado.csv')
+dfa = pd.read_csv("C:/Users/Fabox/Downloads/Base de Datos.csv")
+dfb = pd.read_csv('C:/Users/Fabox/Downloads/Relacion_de_Precios_Modificado.csv')
+
 
 # Unir datos
 df = pd.merge(dfa, dfb, on="NOM_MUSEO")
 
 # Seleccionar columnas relevantes
-datos = df[['COD_DPTO', 'NOM_MUSEO', 'COD_MES', 'COD_TIPO', 'General', 'Preferencial', '<18 años', 'TOTAL_PAGANTES']]
+datos = df[['COD_DPTO', 'NOM_MUSEO', 'COD_MES', 'General', 'Preferencial', '<18 años', 'TOTAL_PAGANTES']]
 
 # Codificar columnas categóricas
-categorical_cols = ['COD_DPTO', 'NOM_MUSEO', 'COD_MES', 'COD_TIPO']
+categorical_cols = ['NOM_MUSEO']
 one_hot_encoder = OneHotEncoder()
 X_categorical = one_hot_encoder.fit_transform(datos[categorical_cols]).toarray()
 
 # Combinar columnas categóricas codificadas con las numéricas
-X_numerical = datos[['General', 'Preferencial', '<18 años']].values
+X_numerical = datos[['COD_DPTO','General', 'Preferencial', '<18 años', 'COD_MES']].values
 X = np.hstack((X_categorical, X_numerical))
 
 # Variable objetivo
@@ -58,6 +60,7 @@ red.fit(X_ent, y_ent)
 # Realizar predicciones
 y_pred_e = red.predict(X_ent)
 y_pred_p = red.predict(X_prb)
+y_pred_p = scaler_y.inverse_transform(y_pred_p.reshape(-1, 1)).flatten()
 
 # Evaluar el desempeño
 rmse_e = mean_squared_error(y_true=y_ent, y_pred=y_pred_e, squared=False)
@@ -80,6 +83,7 @@ plt.show()
 coefs = red.coefs_
 intercepts = red.intercepts_
 
+print(coefs)
 # Función para realizar predicciones manualmente
 def manual_predict(X):
     layer_input = X
@@ -89,7 +93,14 @@ def manual_predict(X):
     return layer_output
 
 # Realizar predicciones manualmente
-y_manual_pred = manual_predict(X_prb)
+y_manual_pred = manual_predict(X_prb).flatten()
+scaler_y_manual= StandardScaler().fit(y_ent.reshape(-1, 1))
+y_manual_pred = scaler_y.inverse_transform(y_manual_pred.reshape(-1, 1)).flatten()
 y_pred_p = y_pred_p.T
 print(y_pred_p)
 print(y_manual_pred)
+print(y)
+score = red.score(X_prb, y_prb)
+
+print("El R2 es",score)
+
