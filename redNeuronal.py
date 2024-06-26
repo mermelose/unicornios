@@ -44,7 +44,7 @@ y_ent = scaler_y.transform(y_ent.reshape(-1, 1)).ravel()
 y_prb = scaler_y.transform(y_prb.reshape(-1, 1)).ravel()
 
 # Crear la red neuronal
-red = MLPRegressor(hidden_layer_sizes=(10,),
+red = MLPRegressor(hidden_layer_sizes=(2,),
                    activation='relu',
                    solver='adam',
                    alpha=0.001,
